@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,15 +37,21 @@ export default function RootLayout({ children }) {
                 <Link href="/" className="transition hover:text-cyan-400">
                   Home
                 </Link>
-                <a href="/about" className="transition hover:text-cyan-400">
+                <Link href="/about" className="transition hover:text-cyan-400">
                   About
-                </a>
-                <a href="/projects" className="transition hover:text-cyan-400">
+                </Link>
+                <Link
+                  href="/projects"
+                  className="transition hover:text-cyan-400"
+                >
                   Projects
-                </a>
-                <a href="/contact" className="transition hover:text-cyan-400">
+                </Link>
+                <Link
+                  href="/contact"
+                  className="transition hover:text-cyan-400"
+                >
                   Contact
-                </a>
+                </Link>
               </nav>
             </div>
           </header>
@@ -82,6 +89,8 @@ export default function RootLayout({ children }) {
             </div>
           </footer>
         </div>
+
+        <SpeedInsights />
       </body>
     </html>
   );
