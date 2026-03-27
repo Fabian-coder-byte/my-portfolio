@@ -1,4 +1,4 @@
-const skills = ["Next.js", "React", "TypeScript", "Angular", ".NET", "Node.js"];
+import { skills } from "@/data/skills";
 
 export default function SkillsSection() {
   return (

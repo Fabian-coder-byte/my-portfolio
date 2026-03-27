@@ -1,5 +1,5 @@
 import Image from "next/image";
-import pictureProfile from "@/public/profile/user1.jpg";
+import pictureProfile from "@/public/profile/user2.jpeg";
 export default function Hero() {
   return (
     <section className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-20 md:flex-row md:items-center md:justify-between">
