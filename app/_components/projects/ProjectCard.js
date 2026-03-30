@@ -1,10 +1,12 @@
+import Link from "next/link";
+
 export default function ProjectCard({ project }) {
   return (
     <article
       key={project.title}
       className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-cyan-400"
     >
-      <div className="mb-4 h-40 rounded-2xl bg-slate-800" />
+      {/* <div className="mb-4 h-40 rounded-2xl bg-slate-800" /> */}
 
       <h3 className="text-xl font-semibold">{project.title}</h3>
 
@@ -23,25 +25,32 @@ export default function ProjectCard({ project }) {
         ))}
       </div>
       <div className="mt-8 flex flex-wrap gap-4">
-        <a
+        <Link
           href={project.github}
           target="_blank"
           rel="noreferrer"
           className="rounded-2xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 transition hover:scale-105"
         >
           GitHub
-        </a>
+        </Link>
 
         {project.demo && (
-          <a
+          <Link
             href={project.demo}
             target="_blank"
             rel="noreferrer"
             className="rounded-2xl border border-slate-700 px-5 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
           >
             Live Demo
-          </a>
+          </Link>
         )}
+
+        <Link
+          href={`/projects/${project.slug}`}
+          className="rounded-2xl border border-slate-700 px-5 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
+        >
+          Dettaglio
+        </Link>
       </div>
     </article>
   );
