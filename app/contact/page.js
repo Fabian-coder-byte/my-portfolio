@@ -1,29 +1,10 @@
+import { contactLinks } from "@/data/contact-link";
+
 export const metadata = {
   title: "Contact | Fabian",
   description:
     "Contatta Fabian per collaborazioni, progetti o opportunità lavorative.",
 };
-
-const contactLinks = [
-  {
-    title: "Email",
-    value: "tuaemail@example.com",
-    href: "mailto:tuaemail@example.com",
-    description: "Per collaborazioni, opportunità o richieste dirette.",
-  },
-  {
-    title: "GitHub",
-    value: "github.com/tuousername",
-    href: "https://github.com/tuousername",
-    description: "Per vedere repository, codice e progetti personali.",
-  },
-  {
-    title: "LinkedIn",
-    value: "linkedin.com/in/tuousername",
-    href: "https://linkedin.com/in/tuousername",
-    description: "Per contatti professionali e networking.",
-  },
-];
 
 export default function ContactPage() {
   return (
@@ -38,8 +19,9 @@ export default function ContactPage() {
         </h1>
 
         <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-          Se vuoi parlare di un progetto, di una collaborazione o semplicemente
-          entrare in contatto, qui trovi i miei riferimenti principali.
+          Se vuoi parlare di un progetto, di una collaborazione o di
+          un’opportunità professionale, puoi scrivermi direttamente da qui
+          oppure usare uno dei miei riferimenti.
         </p>
       </section>
 
@@ -52,9 +34,9 @@ export default function ContactPage() {
                 href={item.href}
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-cyan-400"
+                className="group rounded-3xl border border-slate-800 bg-slate-900 p-6 transition duration-300 hover:-translate-y-1 hover:border-cyan-400/60 hover:bg-slate-900/80"
               >
-                <h2 className="text-xl font-semibold text-cyan-400">
+                <h2 className="text-xl font-semibold text-cyan-400 transition group-hover:text-cyan-300">
                   {item.title}
                 </h2>
 
@@ -72,30 +54,131 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8">
-          <h2 className="text-2xl font-semibold">Disponibilità</h2>
+        <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
+          <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8">
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold">Inviami un messaggio</h2>
+              <p className="mt-3 max-w-2xl leading-8 text-slate-400">
+                Raccontami in breve il contesto, il tipo di progetto o la
+                collaborazione che hai in mente. Ti ricontatterò attraverso i
+                riferimenti che lasci nel form.
+              </p>
+            </div>
 
-          <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-            Sono disponibile per confronti su progetti web, collaborazioni,
-            opportunità professionali e scambi di idee su sviluppo software e
-            tecnologie moderne.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="mailto:tuaemail@example.com"
-              className="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-105"
+            <form
+              action="https://formspree.io/f/your-form-id"
+              method="POST"
+              className="space-y-6"
             >
-              Scrivimi una email
-            </a>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-medium text-slate-200"
+                  >
+                    Nome
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder="Il tuo nome"
+                    required
+                    className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400"
+                  />
+                </div>
 
-            <a
-              href="/projects"
-              className="rounded-2xl border border-slate-700 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
-            >
-              Guarda i progetti
-            </a>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-medium text-slate-200"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="tuamail@email.com"
+                    required
+                    className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="subject"
+                  className="mb-2 block text-sm font-medium text-slate-200"
+                >
+                  Oggetto
+                </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  placeholder="Collaborazione, progetto, opportunità..."
+                  required
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="mb-2 block text-sm font-medium text-slate-200"
+                >
+                  Messaggio
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={7}
+                  placeholder="Scrivi qui il tuo messaggio..."
+                  required
+                  className="w-full rounded-2xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-400"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02] hover:bg-cyan-300"
+              >
+                Invia messaggio
+              </button>
+            </form>
           </div>
+
+          <aside className="space-y-6">
+            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
+              <h3 className="text-lg font-semibold text-white">
+                Disponibilità
+              </h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Sono disponibile per progetti web, collaborazioni freelance,
+                opportunità professionali e confronti su frontend, backend e
+                sviluppo software.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
+              <h3 className="text-lg font-semibold text-white">
+                Tempi di risposta
+              </h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Cerco di rispondere nel più breve tempo possibile, soprattutto
+                per richieste legate a collaborazioni e progetti concreti.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
+              <h3 className="text-lg font-semibold text-white">Preferenze</h3>
+              <p className="mt-4 leading-7 text-slate-300">
+                Per richieste di lavoro o collaborazioni, è utile includere una
+                breve descrizione del progetto, stack tecnologico e obiettivi.
+              </p>
+            </div>
+          </aside>
         </div>
       </section>
     </main>

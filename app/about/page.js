@@ -1,33 +1,12 @@
+import { couses } from "@/data/courses";
+import { skills } from "@/data/skills";
+import SkillCard from "../_components/about/SkillCard";
+
 export const metadata = {
   title: "About | Fabian",
   description:
     "Scopri di più su Fabian, web developer appassionato di sviluppo frontend, backend e applicazioni web moderne.",
 };
-
-const skills = {
-  frontend: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS"],
-  backend: [".NET", "Node.js", "Java Spring", "REST API"],
-  database: ["PostgreSQL", "SQL Server", "MongoDB"],
-  tools: ["Git", "Azure", "Docker", "Hangfire", "SignalR"],
-};
-
-const experiences = [
-  {
-    title: ".NET Academy",
-    description:
-      "Ho seguito un percorso formativo intensivo focalizzato sullo sviluppo software, consolidando basi pratiche su backend, database e architettura applicativa.",
-  },
-  {
-    title: "Internship su progetti interni",
-    description:
-      "Ho lavorato su applicazioni interne come sistemi di inventario e gestione prenotazioni, collaborando allo sviluppo di funzionalità reali.",
-  },
-  {
-    title: "Consulenza e sviluppo web",
-    description:
-      "Successivamente ho continuato il mio percorso lavorando su progetti più strutturati, occupandomi sia di frontend che di backend, integrazioni e processi applicativi.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -84,20 +63,52 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <h2 className="text-2xl font-semibold">Percorso</h2>
+        <div className="max-w-2xl">
+          <h2 className="text-2xl font-semibold text-white">
+            Percorso di formazione
+          </h2>
+          <p className="mt-3 text-slate-400">
+            Una panoramica del mio percorso di crescita tra formazione tecnica,
+            esperienza pratica e sviluppo di competenze nel mondo web e
+            software.
+          </p>
+        </div>
 
-        <div className="mt-8 space-y-6">
-          {experiences.map((item) => (
+        <div className="mt-10 grid gap-6">
+          {couses.map((item) => (
             <article
-              key={item.title}
-              className="rounded-3xl border border-slate-800 bg-slate-900 p-6"
+              key={item.name}
+              className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-sm transition hover:border-cyan-500/40 hover:bg-slate-900"
             >
-              <h3 className="text-xl font-semibold text-cyan-400">
-                {item.title}
-              </h3>
-              <p className="mt-3 leading-8 text-slate-300">
-                {item.description}
-              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold text-cyan-400">
+                    {item.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-slate-400">
+                    {item.institution}
+                  </p>
+                </div>
+
+                <span className="w-fit rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-sm text-slate-300">
+                  {item.year}
+                </span>
+              </div>
+
+              <p className="mt-4 leading-7 text-slate-300">{item.summary}</p>
+
+              {item.skills?.length > 0 && (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {item.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              )}
             </article>
           ))}
         </div>
@@ -105,64 +116,20 @@ export default function AboutPage() {
 
       <section className="border-y border-slate-800 bg-slate-900/40">
         <div className="mx-auto max-w-5xl px-6 py-16">
-          <h2 className="text-2xl font-semibold">Competenze</h2>
+          <div className="max-w-2xl">
+            <h2 className="text-2xl font-semibold text-white">Competenze</h2>
+            <p className="mt-3 text-slate-400">
+              Tecnologie e strumenti con cui lavoro maggiormente nello sviluppo
+              di applicazioni web moderne, tra frontend, backend, database e
+              workflow di sviluppo.
+            </p>
+          </div>
 
           <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold">Frontend</h3>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {skills.frontend.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-slate-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold">Backend</h3>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {skills.backend.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-slate-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold">Database</h3>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {skills.database.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-slate-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold">Tools & Tecnologie</h3>
-              <div className="mt-4 flex flex-wrap gap-3">
-                {skills.tools.map((skill) => (
-                  <span
-                    key={skill}
-                    className="rounded-full border border-slate-700 bg-slate-800 px-4 py-2 text-sm text-slate-200"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <SkillCard title="Frontend" items={skills.frontend} />
+            <SkillCard title="Backend" items={skills.backend} />
+            <SkillCard title="Database" items={skills.database} />
+            <SkillCard title="Tools & Tecnologie" items={skills.tools} />
           </div>
         </div>
       </section>
