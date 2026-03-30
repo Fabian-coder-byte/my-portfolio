@@ -1,6 +1,10 @@
-import { couses } from "@/data/courses";
 import { skills } from "@/data/skills";
 import SkillCard from "../_components/about/SkillCard";
+import Link from "next/link";
+import DownloadCv from "../_components/shared/DownloadCv";
+import { learningItems } from "@/data/learing-items";
+import { getLearningTypeLabel, groupLearningItems } from "@/lib/utils";
+import { LearningSection } from "../_components/about/LearningSection";
 
 export const metadata = {
   title: "About | Fabian",
@@ -9,6 +13,9 @@ export const metadata = {
 };
 
 export default function AboutPage() {
+  const { courses, certifications, certificates } =
+    groupLearningItems(learningItems);
+
   return (
     <main className="bg-slate-950 text-white">
       <section className="mx-auto max-w-5xl px-6 py-20">
@@ -35,84 +42,61 @@ export default function AboutPage() {
               <h2 className="text-2xl font-semibold">Il mio approccio</h2>
               <p className="mt-4 leading-8 text-slate-300">
                 Mi piace sviluppare soluzioni che non siano solo funzionanti, ma
-                anche leggibili, mantenibili e piacevoli da usare. Cerco di
-                unire attenzione tecnica e visione pratica, curando sia la parte
-                visuale sia la logica applicativa.
+                anche leggibili, mantenibili e piacevoli da usare.
               </p>
               <p className="mt-4 leading-8 text-slate-300">
                 Nei progetti cerco sempre di capire il problema prima della
-                soluzione, per costruire applicazioni che abbiano una struttura
-                pulita e un’esperienza utente chiara.
+                soluzione, per costruire applicazioni pulite e chiare.
               </p>
             </div>
 
             <div>
               <h2 className="text-2xl font-semibold">Cosa mi interessa</h2>
               <p className="mt-4 leading-8 text-slate-300">
-                Mi appassionano lo sviluppo web, le architetture moderne, le
-                integrazioni tra servizi, il backend engineering e la creazione
-                di progetti che uniscono tecnologia e utilità reale.
+                Mi appassionano sviluppo web, architetture moderne, integrazioni
+                tra servizi e backend engineering.
               </p>
               <p className="mt-4 leading-8 text-slate-300">
-                Mi piace anche continuare a imparare, esplorare nuovi strumenti
-                e migliorare costantemente il mio modo di progettare software.
+                Mi piace continuare a imparare e migliorare costantemente il mio
+                modo di progettare software.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="max-w-2xl">
-          <h2 className="text-2xl font-semibold text-white">
-            Percorso di formazione
-          </h2>
-          <p className="mt-3 text-slate-400">
-            Una panoramica del mio percorso di crescita tra formazione tecnica,
-            esperienza pratica e sviluppo di competenze nel mondo web e
-            software.
-          </p>
-        </div>
+      <LearningSection
+        title="Percorso di formazione"
+        description="Una panoramica del mio percorso di crescita tra formazione tecnica, esperienza pratica e sviluppo di competenze nel mondo web e software."
+        items={courses}
+        getLearningTypeLabel={getLearningTypeLabel}
+      />
 
-        <div className="mt-10 grid gap-6">
-          {couses.map((item) => (
-            <article
-              key={item.name}
-              className="rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-sm transition hover:border-cyan-500/40 hover:bg-slate-900"
-            >
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold text-cyan-400">
-                    {item.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-slate-400">
-                    {item.institution}
-                  </p>
-                </div>
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="h-px w-full bg-slate-800" />
+      </div>
 
-                <span className="w-fit rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-sm text-slate-300">
-                  {item.year}
-                </span>
-              </div>
+      <LearningSection
+        title="Certificazioni"
+        description="Certificazioni e percorsi che hanno contribuito alla mia crescita tecnica e professionale."
+        items={certifications}
+        getLearningTypeLabel={getLearningTypeLabel}
+      />
 
-              <p className="mt-4 leading-7 text-slate-300">{item.summary}</p>
+      {certificates.length > 0 && (
+        <>
+          <div className="mx-auto max-w-5xl px-6">
+            <div className="h-px w-full bg-slate-800" />
+          </div>
 
-              {item.skills?.length > 0 && (
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {item.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </article>
-          ))}
-        </div>
-      </section>
+          <LearningSection
+            title="Attestati"
+            description="Attestati di completamento e percorsi aggiuntivi rilevanti per il mio percorso."
+            items={certificates}
+            getLearningTypeLabel={getLearningTypeLabel}
+          />
+        </>
+      )}
 
       <section className="border-y border-slate-800 bg-slate-900/40">
         <div className="mx-auto max-w-5xl px-6 py-16">
@@ -120,8 +104,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-semibold text-white">Competenze</h2>
             <p className="mt-3 text-slate-400">
               Tecnologie e strumenti con cui lavoro maggiormente nello sviluppo
-              di applicazioni web moderne, tra frontend, backend, database e
-              workflow di sviluppo.
+              di applicazioni web moderne.
             </p>
           </div>
 
@@ -136,26 +119,21 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-5xl px-6 py-16">
         <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8">
-          <h2 className="text-2xl font-semibold">Obiettivo</h2>
+          <h2 className="text-2xl font-semibold">Vuoi saperne di più?</h2>
           <p className="mt-4 max-w-3xl leading-8 text-slate-300">
-            Voglio continuare a crescere come sviluppatore costruendo
-            applicazioni web sempre più complete, robuste e ben progettate,
-            migliorando sia sul piano tecnico sia su quello progettuale.
+            Puoi esplorare i miei progetti oppure scaricare il CV per avere una
+            panoramica più completa del mio percorso e delle mie competenze.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
+            <Link
               href="/projects"
               className="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-105"
             >
               Guarda i progetti
-            </a>
-            <a
-              href="/contact"
-              className="rounded-2xl border border-slate-700 px-6 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
-            >
-              Contattami
-            </a>
+            </Link>
+
+            <DownloadCv />
           </div>
         </div>
       </section>

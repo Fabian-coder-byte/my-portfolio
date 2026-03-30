@@ -54,7 +54,7 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="grid gap-8 lg:grid-cols-[1.3fr_0.7fr]">
+        <div className="grid gap-8 lg:grid-cols-[30fr_0.7fr]">
           <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8">
             <div className="mb-8">
               <h2 className="text-2xl font-semibold">Inviami un messaggio</h2>
@@ -66,7 +66,7 @@ export default function ContactPage() {
             </div>
 
             <form
-              action="https://formspree.io/f/your-form-id"
+              action="https://formspree.io/f/mlgobnoo"
               method="POST"
               className="space-y-6"
             >
@@ -148,37 +148,6 @@ export default function ContactPage() {
               </button>
             </form>
           </div>
-
-          <aside className="space-y-6">
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold text-white">
-                Disponibilità
-              </h3>
-              <p className="mt-4 leading-7 text-slate-300">
-                Sono disponibile per progetti web, collaborazioni freelance,
-                opportunità professionali e confronti su frontend, backend e
-                sviluppo software.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold text-white">
-                Tempi di risposta
-              </h3>
-              <p className="mt-4 leading-7 text-slate-300">
-                Cerco di rispondere nel più breve tempo possibile, soprattutto
-                per richieste legate a collaborazioni e progetti concreti.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-900 p-6">
-              <h3 className="text-lg font-semibold text-white">Preferenze</h3>
-              <p className="mt-4 leading-7 text-slate-300">
-                Per richieste di lavoro o collaborazioni, è utile includere una
-                breve descrizione del progetto, stack tecnologico e obiettivi.
-              </p>
-            </div>
-          </aside>
         </div>
       </section>
     </main>

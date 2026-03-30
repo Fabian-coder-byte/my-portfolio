@@ -115,19 +115,20 @@ export default async function ProjectDetailPage({ params }) {
           </aside>
         </div>
       </section>
-
-      <section className="border-y border-slate-800 bg-slate-900/40">
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="relative h-[260px] overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 md:h-[420px]">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover"
-            />
+      {project.image && (
+        <section className="border-y border-slate-800 bg-slate-900/40">
+          <div className="mx-auto max-w-6xl px-6 py-16">
+            <div className="relative h-[260px] overflow-hidden rounded-3xl border border-slate-800 bg-slate-900 md:h-[420px]">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-10 lg:grid-cols-2">

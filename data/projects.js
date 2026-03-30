@@ -6,7 +6,7 @@ export const projects = [
       "Applicazione web con gestione utenti, prodotti, ordini e ruoli multipli.",
     description:
       "Una piattaforma e-commerce progettata per gestire catalogo prodotti, autenticazione utenti, ordini e diversi ruoli applicativi in modo scalabile e ordinato.",
-    image: "/projects/ecommerce.jpg",
+    image: null,
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
     github: "https://github.com/tuousername/ecommerce-platform",
     demo: "https://tuodominio-ecommerce.com",
@@ -37,7 +37,7 @@ export const projects = [
       "Dashboard per gestione dati, processi backend e aggiornamenti realtime.",
     description:
       "Una dashboard orientata alla gestione di dati applicativi e processi backend, con attenzione alla chiarezza operativa e all’integrazione tra servizi.",
-    image: "/projects/healthcare.jpg",
+    image: null,
     stack: [".NET", "Angular", "SignalR", "SQL Server"],
     github: "https://github.com/tuousername/healthcare-dashboard",
     demo: "",

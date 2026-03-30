@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { contactLinks } from "@/data/contact-link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -63,28 +64,17 @@ export default function RootLayout({ children }) {
               <p>© 2026 Fabian. Tutti i diritti riservati.</p>
 
               <div className="flex items-center gap-4">
-                <a
-                  href="https://github.com/tuousername"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transition hover:text-cyan-400"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="https://linkedin.com/in/tuousername"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transition hover:text-cyan-400"
-                >
-                  LinkedIn
-                </a>
-                <a
-                  href="mailto:tuaemail@example.com"
-                  className="transition hover:text-cyan-400"
-                >
-                  Email
-                </a>
+                {contactLinks.map((el, i) => (
+                  <Link
+                    href={el.href}
+                    key={i}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition hover:text-cyan-400"
+                  >
+                    {el.title}
+                  </Link>
+                ))}
               </div>
             </div>
           </footer>
