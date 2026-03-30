@@ -1,5 +1,6 @@
 import { projects } from "@/data/projects";
 import ProjectCard from "../_components/projects/ProjectCard";
+import { ProjectList } from "../_components/projects/ProjectList";
 
 export const metadata = {
   title: "Projects | Fabian",
@@ -28,11 +29,20 @@ export default function ProjectsPage() {
 
       <section className="border-y border-slate-800 bg-slate-900/40">
         <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="grid gap-8 md:grid-cols-2">
-            {projects.map((project) => (
-              <ProjectCard project={project} key={project.title} />
-            ))}
+          <div className="max-w-2xl">
+            <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
+              Projects
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-white">
+              Progetti selezionati
+            </h2>
+            <p className="mt-4 leading-8 text-slate-400">
+              Una selezione di progetti su cui ho lavorato, tra frontend,
+              backend, integrazioni e applicazioni web moderne.
+            </p>
           </div>
+
+          <ProjectList projects={projects} />
         </div>
       </section>
 

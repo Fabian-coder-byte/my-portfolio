@@ -1,6 +1,7 @@
 import { projects } from "@/data/projects";
 import ProjectCard from "../projects/ProjectCard";
 import Link from "next/link";
+import { ProjectList } from "../projects/ProjectList";
 
 export default function Projects() {
   return (
@@ -25,11 +26,7 @@ export default function Projects() {
           </Link>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard project={project} key={project.title} />
-          ))}
-        </div>
+        <ProjectList projects={projects} />
       </div>
     </section>
   );
