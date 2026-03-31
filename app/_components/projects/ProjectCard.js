@@ -4,13 +4,15 @@ export default function ProjectCard({ project }) {
   return (
     <article
       key={project.title}
-      className="rounded-3xl border border-slate-800 bg-slate-900 p-6 transition hover:-translate-y-1 hover:border-cyan-400"
+      className="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-cyan-500 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-cyan-400"
     >
-      {/* <div className="mb-4 h-40 rounded-2xl bg-slate-800" /> */}
+      {/* <div className="mb-4 h-40 rounded-2xl bg-slate-200 dark:bg-slate-800" /> */}
 
-      <h3 className="text-xl font-semibold">{project.title}</h3>
+      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
+        {project.title}
+      </h3>
 
-      <p className="mt-3 text-sm leading-7 text-slate-400">
+      <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-400">
         {project.shortDescription}
       </p>
 
@@ -18,12 +20,13 @@ export default function ProjectCard({ project }) {
         {project.stack.map((item) => (
           <span
             key={item}
-            className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300"
+            className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-300"
           >
             {item}
           </span>
         ))}
       </div>
+
       <div className="mt-8 flex flex-wrap gap-4">
         <Link
           href={project.github}
@@ -39,7 +42,7 @@ export default function ProjectCard({ project }) {
             href={project.demo}
             target="_blank"
             rel="noreferrer"
-            className="rounded-2xl border border-slate-700 px-5 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
+            className="rounded-2xl border border-slate-300 px-5 py-3 font-semibold text-slate-900 transition hover:border-cyan-500 hover:text-cyan-500 dark:border-slate-700 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-400"
           >
             Live Demo
           </Link>
@@ -47,7 +50,7 @@ export default function ProjectCard({ project }) {
 
         <Link
           href={`/projects/${project.slug}`}
-          className="rounded-2xl border border-slate-700 px-5 py-3 font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-400"
+          className="rounded-2xl border border-slate-300 px-5 py-3 font-semibold text-slate-900 transition hover:border-cyan-500 hover:text-cyan-500 dark:border-slate-700 dark:text-white dark:hover:border-cyan-400 dark:hover:text-cyan-400"
         >
           Dettaglio
         </Link>

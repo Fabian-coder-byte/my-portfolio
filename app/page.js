@@ -6,7 +6,7 @@ import Hero from "./_components/home/Hero";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-white text-black dark:bg-black dark:text-white transition-all duration-300 ">
       <Hero />
       <About />
       <SkillsSection />

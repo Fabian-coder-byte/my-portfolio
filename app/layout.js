@@ -3,6 +3,8 @@ import "./globals.css";
 import Link from "next/link";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { contactLinks } from "@/data/contact-link";
+import ThemeToggle from "./_components/shared/ThemeToggle";
+import { ThemeProvider } from "next-themes";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,63 +26,75 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="it"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth`}
     >
-      <body className="min-h-screen bg-slate-950 text-white antialiased">
-        <div className="flex min-h-screen flex-col">
-          <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
-            <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
-              <Link href="/" className="text-lg font-bold tracking-tight">
-                Fabian
-              </Link>
-
-              <nav className="flex items-center gap-6 text-sm text-slate-300">
-                <Link href="/" className="transition hover:text-cyan-400">
-                  Home
+      <body className="min-h-screen bg-white text-slate-900 antialiased dark:bg-slate-950 dark:text-white">
+        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
+          <div className="flex min-h-screen flex-col">
+            <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80">
+              <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4">
+                <Link href="/" className="text-lg font-bold tracking-tight">
+                  Fabian
                 </Link>
-                <Link href="/about" className="transition hover:text-cyan-400">
-                  About
-                </Link>
-                <Link
-                  href="/projects"
-                  className="transition hover:text-cyan-400"
-                >
-                  Projects
-                </Link>
-                <Link
-                  href="/contact"
-                  className="transition hover:text-cyan-400"
-                >
-                  Contact
-                </Link>
-              </nav>
-            </div>
-          </header>
 
-          <main className="flex-1">{children}</main>
+                <nav className="flex items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+                  <div className="flex items-center gap-4">
+                    <nav className="flex items-center gap-6 text-sm text-slate-600 dark:text-slate-300">
+                      <Link href="/" className="transition hover:text-cyan-400">
+                        Home
+                      </Link>
+                      <Link
+                        href="/about"
+                        className="transition hover:text-cyan-400"
+                      >
+                        About
+                      </Link>
+                      <Link
+                        href="/projects"
+                        className="transition hover:text-cyan-400"
+                      >
+                        Projects
+                      </Link>
+                      <Link
+                        href="/contact"
+                        className="transition hover:text-cyan-400"
+                      >
+                        Contact
+                      </Link>
+                    </nav>
 
-          <footer className="border-t border-slate-800 bg-slate-950">
-            <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-              <p>© 2026 Fabian. Tutti i diritti riservati.</p>
-
-              <div className="flex items-center gap-4">
-                {contactLinks.map((el, i) => (
-                  <Link
-                    href={el.href}
-                    key={i}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition hover:text-cyan-400"
-                  >
-                    {el.title}
-                  </Link>
-                ))}
+                    <ThemeToggle />
+                  </div>
+                </nav>
               </div>
-            </div>
-          </footer>
-        </div>
+            </header>
 
-        <SpeedInsights />
+            <main className="flex-1">{children}</main>
+
+            <footer className="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+              <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6 py-8 text-sm text-slate-500 dark:text-slate-400 md:flex-row md:items-center md:justify-between">
+                <p>© 2026 Fabian. Tutti i diritti riservati.</p>
+
+                <div className="flex items-center gap-4">
+                  {contactLinks.map((el, i) => (
+                    <Link
+                      href={el.href}
+                      key={i}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="transition hover:text-cyan-400"
+                    >
+                      {el.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </footer>
+          </div>
+
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -17,17 +17,17 @@ export default function AboutPage() {
     groupLearningItems(learningItems);
 
   return (
-    <main className="bg-slate-950 text-white">
+    <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       <section className="mx-auto max-w-5xl px-6 py-20">
-        <p className="mb-4 text-sm uppercase tracking-[0.2em] text-cyan-400">
+        <p className="mb-4 text-sm uppercase tracking-[0.2em] text-cyan-500 dark:text-cyan-400">
           About me
         </p>
 
-        <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+        <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-5xl dark:text-white">
           Chi sono e come lavoro
         </h1>
 
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600 dark:text-slate-300">
           Sono Fabian, uno sviluppatore web interessato alla creazione di
           applicazioni moderne, curate e ben strutturate. Mi piace lavorare su
           interfacce chiare, backend solidi e architetture che abbiano senso sia
@@ -35,28 +35,32 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section className="border-y border-slate-800 bg-slate-900/40">
+      <section className="border-y border-slate-200 bg-slate-100/70 dark:border-slate-800 dark:bg-slate-900/40">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="grid gap-10 md:grid-cols-2">
             <div>
-              <h2 className="text-2xl font-semibold">Il mio approccio</h2>
-              <p className="mt-4 leading-8 text-slate-300">
+              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+                Il mio approccio
+              </h2>
+              <p className="mt-4 leading-8 text-slate-600 dark:text-slate-300">
                 Mi piace sviluppare soluzioni che non siano solo funzionanti, ma
                 anche leggibili, mantenibili e piacevoli da usare.
               </p>
-              <p className="mt-4 leading-8 text-slate-300">
+              <p className="mt-4 leading-8 text-slate-600 dark:text-slate-300">
                 Nei progetti cerco sempre di capire il problema prima della
                 soluzione, per costruire applicazioni pulite e chiare.
               </p>
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold">Cosa mi interessa</h2>
-              <p className="mt-4 leading-8 text-slate-300">
+              <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+                Cosa mi interessa
+              </h2>
+              <p className="mt-4 leading-8 text-slate-600 dark:text-slate-300">
                 Mi appassionano sviluppo web, architetture moderne, integrazioni
                 tra servizi e backend engineering.
               </p>
-              <p className="mt-4 leading-8 text-slate-300">
+              <p className="mt-4 leading-8 text-slate-600 dark:text-slate-300">
                 Mi piace continuare a imparare e migliorare costantemente il mio
                 modo di progettare software.
               </p>
@@ -73,7 +77,7 @@ export default function AboutPage() {
       />
 
       <div className="mx-auto max-w-5xl px-6">
-        <div className="h-px w-full bg-slate-800" />
+        <div className="h-px w-full bg-slate-200 dark:bg-slate-800" />
       </div>
 
       <LearningSection
@@ -86,7 +90,7 @@ export default function AboutPage() {
       {certificates.length > 0 && (
         <>
           <div className="mx-auto max-w-5xl px-6">
-            <div className="h-px w-full bg-slate-800" />
+            <div className="h-px w-full bg-slate-200 dark:bg-slate-800" />
           </div>
 
           <LearningSection
@@ -98,11 +102,13 @@ export default function AboutPage() {
         </>
       )}
 
-      <section className="border-y border-slate-800 bg-slate-900/40">
+      <section className="border-y border-slate-200 bg-slate-100/70 dark:border-slate-800 dark:bg-slate-900/40">
         <div className="mx-auto max-w-5xl px-6 py-16">
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-semibold text-white">Competenze</h2>
-            <p className="mt-3 text-slate-400">
+            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+              Competenze
+            </h2>
+            <p className="mt-3 text-slate-600 dark:text-slate-400">
               Tecnologie e strumenti con cui lavoro maggiormente nello sviluppo
               di applicazioni web moderne.
             </p>
@@ -118,9 +124,11 @@ export default function AboutPage() {
       </section>
 
       <section className="mx-auto max-w-5xl px-6 py-16">
-        <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8">
-          <h2 className="text-2xl font-semibold">Vuoi saperne di più?</h2>
-          <p className="mt-4 max-w-3xl leading-8 text-slate-300">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 dark:border-slate-800 dark:bg-slate-900">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">
+            Vuoi saperne di più?
+          </h2>
+          <p className="mt-4 max-w-3xl leading-8 text-slate-600 dark:text-slate-300">
             Puoi esplorare i miei progetti oppure scaricare il CV per avere una
             panoramica più completa del mio percorso e delle mie competenze.
           </p>
